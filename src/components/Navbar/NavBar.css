@@ -1,0 +1,20 @@
+.navBar {
+    background-color: #e6cfc9;
+}
+
+.navContenedor {
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.navCategorias {
+    display: flex;
+    flex-direction: column;
+}
+
+.navegadorPorCategoria {
+    border: solid 2px orange;
+    border-radius: 10px;
+    padding: 5px;
+}

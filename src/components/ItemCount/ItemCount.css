@@ -1,0 +1,15 @@
+.contadorPadre {
+    display: flex;
+    flex-direction: column;
+}
+
+.tituloContador {
+    margin: 5px;
+    color: #D4A373;
+    padding-bottom: 10px;
+}
+
+.botonContador {
+    border: solid 1px orange;
+    border-radius: 10px;
+}

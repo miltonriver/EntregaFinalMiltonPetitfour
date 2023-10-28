@@ -1,0 +1,18 @@
+.imagenes{
+    width:200px;
+    height:250px;
+    padding: 50px;
+}
+
+.items {
+    border: solid 2px #e6cfc9;
+    border-radius: 20px;
+}
+
+.itemFooter {
+    display: inline-block;
+    padding: 5px;
+    margin-bottom: 5px;
+    border: solid 2px orange;
+    border-radius: 10px;
+}
