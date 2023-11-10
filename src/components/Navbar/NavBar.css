@@ -2,6 +2,11 @@
     background-color: #e6cfc9;
 }
 
+.tituloBarraNavegacion:hover {
+    color: red;
+    font-size: 32px;
+}
+
 .navContenedor {
     display:flex;
     justify-content: space-evenly;
@@ -17,4 +22,9 @@
     border: solid 2px orange;
     border-radius: 10px;
     padding: 5px;
+}
+
+.navegadorPorCategoria:hover {
+    color: red;
+    font-size: 20px;
 }
