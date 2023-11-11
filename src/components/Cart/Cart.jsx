@@ -8,10 +8,10 @@ export const Cart = () => {
 
     if(totalQuantity === 0) {
         return (
-            <di>
+            <div>
                 <h1>No hay items en el carrito</h1>
                 <Link to="/" className="definirLaClase">Productos</Link>
-            </di>
+            </div>
         )
     }
 

@@ -43,7 +43,7 @@ const ItemDetail = ({id, name, img, category, description, price, stock }) => {
                 {
                     quantityAdded > 0 ? (
                         <Link to="/cart">Terminar compra</Link>
-                    ) : (<ItemCount inicial={1} stock={stock} onAdd={(handleOnAdd) => console.log("Cantidad agregada ", handleOnAdd)} />)
+                    ) : (<ItemCount inicial={1} stock={stock} onAdd={ handleOnAdd } />)
                 }
             </footer>
         </article>
