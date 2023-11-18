@@ -1,5 +1,7 @@
 .navBar {
     background-color: #e6cfc9;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
 }
 
 .tituloBarraNavegacion:hover {

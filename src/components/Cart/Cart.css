@@ -1,0 +1,68 @@
+.carritoVacio {
+    width: 70vh;
+    padding: 0 45px 30px 45px;
+    box-sizing: border-box;
+    border: solid 2px #e6cfc9;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.cartLinkProductos {
+    font-size: 24px;
+}
+
+.cartLinkProductos:hover {
+    color: red;
+    font-size: 32px;
+
+}
+
+.carritoConProductos {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 70vh;
+    padding: 0 45px 30px 45px;
+    box-sizing: border-box;
+    border: solid 2px #e6cfc9;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.productContainer {
+    position: relative;
+}
+
+.tituloPrincipalPrecioUnitario {
+    margin: 5px;
+    padding: 3px 20px;
+}
+
+.tituloPrecioUnitario {
+    padding: 5px 20px;
+    margin: 2px;
+}
+
+.imagenProductoEncarrito {
+    width: 90px;
+    height: 120px;
+}
+
+.botonEliminarDelCarrito {
+    position: absolute;
+    top: 60px;
+    right: 5px;
+    cursor: pointer;
+    border: solid 2px orange;
+    background-color: #e6cfc9;
+}
+
+.imagenCestoBasura {
+    width: 25px;
+    height: 25px;
+}
+
+.imagenCestoBasura:hover {
+    width: 35px;
+    height: 35px;
+}
