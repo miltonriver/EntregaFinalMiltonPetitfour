@@ -1,13 +1,15 @@
 import { db } from "../firebaseConfig"
-import { getDocs, collection, QuerySnapshot, DocumentSnapshot } from "firebase/firestore"
+import { getDocs, collection, query, where, getDoc, doc } from "firebase/firestore"
 
-export const getProducts = () => {
+export const getProducts = (categoryId) => {
     return new Promise((resolve, reject) => {
-        const productsRef = collection(db, "products")
-        
+        const productsRef = categoryId
+            ? query(collection(db, "products"), where("category", "==", categoryId))
+            : collection(db, "products")
+
         getDocs(productsRef)
-            .then(QuerySnapshot => {
-                const productsAdapted = QuerySnapshot.docs.map(documentSnapshot => {
+            .then(querySnapshot => {
+                const productsAdapted = querySnapshot.docs.map(documentSnapshot => {
                     const fields = documentSnapshot.data()
 
                     return {
@@ -16,10 +18,26 @@ export const getProducts = () => {
                     }
                 })
                 resolve(productsAdapted)
-                console.log(productsAdapted)
             })
-            .catch(error =>{
+            .catch(error => {
                 reject(error)
             })
     })
+}
+
+export const getProductById = (itemId) => {
+    return new Promise((resolve, reject) => {
+        const productRef = doc(db, "products", itemId)
+
+        getDoc(productRef)
+            .then(documentSnapshot => {
+                const fields = documentSnapshot.data()
+                const productAdapted = { id: documentSnapshot.id, ...fields }
+                resolve(productAdapted)
+            })
+            .catch(error => {
+                reject(error)
+            })
+    })
+
 }
