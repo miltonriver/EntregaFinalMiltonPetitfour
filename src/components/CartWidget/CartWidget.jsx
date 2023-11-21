@@ -7,7 +7,7 @@ const CartWidget = () => {
     const { totalQuantity } = useCart()
     console.log(totalQuantity + " Productos agregados")
     return (
-        <Link to="/cart" className="CartWidget"/*  style={{display: totalQuantity > 0 ? "block" : "none"}} */>
+        <Link to="/cart" className="CartWidget" >
             <img className="carritoImagen" src={cart} alt="carrito de compras" />
             { totalQuantity } productos
             

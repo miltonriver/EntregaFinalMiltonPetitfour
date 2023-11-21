@@ -6,10 +6,13 @@ import { getProductById } from "../../services/firebase/firestore/products"
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState(null)
+    const [loading, setLoading] = useState(false)
 
     const { itemId } = useParams()
 
     useEffect(() => {
+        setLoading(true)
+        
         getProductById(itemId)
             .then(response => {
                 setProduct(response)
@@ -17,7 +20,18 @@ const ItemDetailContainer = () => {
             .catch(error => {
                 console.error(error)
             })
+            .finally(() => {
+                setLoading(false)
+            })
     }, [itemId])
+
+    if(loading){
+        return <h2>Buscando producto seleccionado</h2>
+    }
+
+    if(!product){
+        return <h1>No existe ningún producto en esta categoría</h1>
+    }
 
     return (
         <div>

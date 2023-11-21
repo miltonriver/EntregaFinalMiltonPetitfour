@@ -1,0 +1,53 @@
+.alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.alert button {
+    margin-top: 10px;
+}
+
+.contenedorFormulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formularioCompra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 2px solid orange;
+    border-radius: 5px;
+    box-shadow: 0 0 20px #e6cfc9;
+}
+
+.formularioCompra h3 {
+    margin: 5px;
+}
+
+.formularioCompra input {
+    width: 320px;
+    margin-bottom: 10px;
+    padding: 8px;
+}
+
+.formularioCompra button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.formularioCompra button:hover {
+    font-size: 20px;
+}

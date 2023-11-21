@@ -11,7 +11,7 @@ const ItemDetail = ({id, name, img, category, description, price, stock }) => {
 
     const handleOnAdd = (quantity) => {
         setQuantityAdded(quantity)
-        console.log(`se agregaron ${quantity} unidades de ${name}`)
+        alert(`se agregaron ${quantity} unidades de ${name}`)
 
         const item = {
             id, name, price, img, quantity
@@ -29,9 +29,12 @@ const ItemDetail = ({id, name, img, category, description, price, stock }) => {
             <picture>
                 <img src={img} alt={name} style={{width:150}}/>
             </picture>
-            <section>
+            <section className="seccionItemDetail">
                 <p>
                     Categoria: <b>{category}</b>
+                </p>
+                <p>
+                    Stock disponible: <b>{stock} unidades</b>
                 </p>
                 <p>
                     Descripción: {description}

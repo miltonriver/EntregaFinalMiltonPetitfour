@@ -13,7 +13,7 @@ const NavBar = () => {
                     <NavLink to={`/category/Playstation`} className="navegadorPorCategoria" >Juegos PS</NavLink>
                     <NavLink to={`/category/PC`} className="navegadorPorCategoria">Juegos PC</NavLink>
                     <NavLink to={`/category/Xbox`} className="navegadorPorCategoria">Juegos Xbox</NavLink>
-                    <NavLink to={`/category/Nintendo Switch`} className="navegadorPorCategoria">Juegos Switch</NavLink>
+                    <NavLink to={`/category/Nintendo`} className="navegadorPorCategoria">Juegos Switch</NavLink>
                 </div>
                 <CartWidget />
             </div>

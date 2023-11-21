@@ -2,7 +2,7 @@ import "./Cart.css"
 import eliminar from "../../assets/eliminar.png"
 import { useCart } from "../../context/CartContext"
 import { Link } from"react-router-dom"
-import Item from "../Item/Item"
+//import Item from "../Item/Item"
 
 export const Cart = () => {
     const { cart, clearCart, removeItem, totalQuantity, total } = useCart()
