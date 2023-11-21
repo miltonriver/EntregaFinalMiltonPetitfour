@@ -11,7 +11,7 @@ const ItemDetail = ({id, name, img, category, description, price, stock }) => {
 
     const handleOnAdd = (quantity) => {
         setQuantityAdded(quantity)
-        alert(`se agregaron ${quantity} unidades de ${name}`)
+        alertcommi(`se agregaron ${quantity} unidades de ${name}`)
 
         const item = {
             id, name, price, img, quantity
