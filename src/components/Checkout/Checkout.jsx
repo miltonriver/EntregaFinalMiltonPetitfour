@@ -1,4 +1,4 @@
-import "./Checkout.css"
+import Swal from "sweetalert2"
 import { useState } from "react"
 import { useCart } from "../../context/CartContext"
 import { getDocs, collection, query, where, documentId, writeBatch, addDoc } from "firebase/firestore"
@@ -16,9 +16,10 @@ const Checkout = () => {
 
             const objOrder = {
                 buyer: {
+                    //Datos provenientes del formulario de contacto
                     name: userData.name,
                     email: userData.email,
-                    phone: userData.phone //datos harcodeados, debo obtenerlos del formulario una vez creado e ingresados por el usuario {userData} importados desde el formulario
+                    phone: userData.phone
                 },
                 items: cart,
                 total
@@ -30,9 +31,6 @@ const Checkout = () => {
             const ids = cart.map(prod => prod.id)
 
             const productsRef = query(collection(db, "products"), where(documentId(), "in", ids))
-
-            //getDocs(productsRef).then(QuerySnapshot => {})
-            //const QuerySnapshot = await getDocs(productsRef)
 
             const { docs } = await getDocs(productsRef)
 
@@ -47,7 +45,6 @@ const Checkout = () => {
                     batch.update(documentSnapshot.ref, { stock: stockDb - prodQuantity })
                 } else {
                     outOfStock.push({ id: documentSnapshot.id, ...fields })
-                    console.log(outOfStock)
                 }
 
                 if (outOfStock.length === 0) {
@@ -58,25 +55,34 @@ const Checkout = () => {
                     clearCart()
                     setOrderId(id)
                 } else {
-                    console.log(`El producto ${fields.name} no se encuentra en stock`)
-                    //<h2>`El producto ${fields.name} no se encuentra en stock`</h2>
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: `El producto ${fields.name} no se encuentra en stock`,
+                        footer: `Pruebe pedir menos de ${fields.stock} unidades o intente con otro producto`,
+                    });
                 }
             })
 
         } catch (error) {
-            console.error("Hubo un error generando su orden")
+            Swal.fire({
+                title: "Algo anda mal",
+                text: "Intente nuevamente por favor",
+                icon: "error"
+            });
         } finally {
             setLoading(false)
         }
     }
 
-    if(loading) {
+    if (loading) {
         return <h1>Se está generando la orden de su pedido...</h1>
     }
 
-    if(orderId) {
+    if (orderId) {
+        //Generación de la identificaión de la orden de compra
         return (<h1>El id de su orden es: {orderId}</h1>)
-        
+
     }
 
     return (

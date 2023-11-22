@@ -27,10 +27,12 @@ const ItemListContainer = ({greetings}) => {
     }, [categoryId])
 
     if(loading){
+        //Mensaje de espera al cargar los productos
         return <h2>Cargando productos...</h2>
     }
 
     if(products.length === 0) {
+        //Mensaje para mostrar si no existen productos en esa categoría
         return <h1>No existen productos para esta categoría</h1>
     }
 

@@ -17,6 +17,7 @@ const ItemCount = ({stock, inicial, onAdd}) => {
     }
 
     return(
+        //Contador de productos para agregar al carrito
         <div className="contadorPadre">
             <h5 className="tituloContador">Cantidad</h5>
             <h2 className="tituloContador">{cantidad}</h2>

@@ -1,4 +1,5 @@
 import "./ContactForm.css"
+import Swal from "sweetalert2"
 import { useState } from "react"
 
 const ContactForm = ({ onCreate }) => {
@@ -10,13 +11,15 @@ const ContactForm = ({ onCreate }) => {
         e.preventDefault()
 
         if (!name || !email || !phone){
-            alert("Por favor completa todos los campos requeridos")
+            //Notificación por si alguno de los campos del formulario se encuentra vacío al momento de validar
+            Swal.fire("Por favor completa todos los campos requeridos");
             return;
         }
 
         const phoneRegex = /^[0-9]+$/;
         if (!phoneRegex.test(phone)) {
-            alert('El teléfono solo puede contener números.');
+            //Notificaión por si el campo de número telefónico contiene alguna letra o símbolo en lugar de solo números
+            Swal.fire('El teléfono solo puede contener números.');
             return;
         }
         
@@ -24,6 +27,7 @@ const ContactForm = ({ onCreate }) => {
     }
 
     return (
+        //Formulario de contacto
         <div className="contenedorFormulario">
             <form onSubmit={handleSubmit} className="formularioCompra">
                 <h3>Nombre y Apellido</h3>

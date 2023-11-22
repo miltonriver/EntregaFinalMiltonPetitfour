@@ -1,4 +1,3 @@
-import "./ItemDetailContainer.css"
 import { useState, useEffect } from "react"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import { useParams } from "react-router-dom"
@@ -26,10 +25,12 @@ const ItemDetailContainer = () => {
     }, [itemId])
 
     if(loading){
+        //Mensaje de carga entre pantallas para un solo producto seleccionado
         return <h2>Buscando producto seleccionado</h2>
     }
 
     if(!product){
+        //Mensaje en caso de no existir ningún producto para esa categoría 
         return <h1>No existe ningún producto en esta categoría</h1>
     }
 

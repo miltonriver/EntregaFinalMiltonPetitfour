@@ -8,7 +8,7 @@ const NavBar = () => {
             <Link to="/">
                 <h2 className="tituloBarraNavegacion">Mi Tienda de Juegos</h2>
             </Link>
-            <div className="navContenedor">
+            <div className="navContenedor">                
                 <div className="navCategorias">
                     <NavLink to={`/category/Playstation`} className="navegadorPorCategoria" >Juegos PS</NavLink>
                     <NavLink to={`/category/PC`} className="navegadorPorCategoria">Juegos PC</NavLink>

@@ -1,11 +1,29 @@
 import "./Cart.css"
+import Swal from "sweetalert2"
 import eliminar from "../../assets/eliminar.png"
 import { useCart } from "../../context/CartContext"
 import { Link } from"react-router-dom"
-//import Item from "../Item/Item"
 
 export const Cart = () => {
     const { cart, clearCart, removeItem, totalQuantity, total } = useCart()
+
+    const showRemoveConfirmation = (productId) => {
+        //función necesaria para poder implementar SweetAlert en el código al momento de eliminar un producto del carrito
+        Swal.fire({
+            title: '¿Estás seguro qué deseas eliminar este producto?',
+            text: '¡No podrás revertir esto!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, estoy seguro',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Ejecuta la lógica para eliminar el producto
+                removeItem(productId);
+            }
+        });
+    };
 
     if(totalQuantity === 0) {
         return (
@@ -17,7 +35,6 @@ export const Cart = () => {
     } else {
         return (
             <div className="carritoConProductos">
-                {/* { cart.map(p => <CardItem key={p.id} {...p} />)} */}
                 <h2 className="tituloPrincipalPrecioUnitario">Detalle del pedido</h2>
                 {
                     cart.map(prod => {
@@ -26,7 +43,7 @@ export const Cart = () => {
                                 <h3 className="tituloPrincipalPrecioUnitario">{prod.quantity} unidades de {prod.name} juego físico</h3>
                                 <h4 className="tituloPrecioUnitario">Precio unitario ${prod.price}</h4>
                                 <img src={prod.img} className="imagenProductoEncarrito" />
-                                <button onClick={() => removeItem(prod.id)} className="botonEliminarDelCarrito">
+                                <button onClick={() => showRemoveConfirmation(prod.id)} className="botonEliminarDelCarrito">
                                     <img src={eliminar} className="imagenCestoBasura" alt="cesto de basura" />
                                 </button>
                             </div>
