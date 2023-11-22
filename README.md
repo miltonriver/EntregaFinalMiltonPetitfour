@@ -8,12 +8,13 @@ Este proyecto consta de un Ecommerce ficticio, creado enteramente con React y co
 
 ## Para instalar el proyecto
 
-<!-- ```sh
-$ git clone 
+```sh
+$ git clone https://github.com/miltonriver/segundaPreentregaMiltonPetitfour.git
 $ cd ecommercemiltonpetitfour
 $ npm install
 $ node apprun dev
-``` -->
+```
+
 
 ## Tecnologías / Librerías
 
